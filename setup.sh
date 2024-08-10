@@ -10,11 +10,6 @@ for i in $(cat apt/necessary_packages.txt); do
     sudo apt-get install -y $i;
 done
 
-# virtualbox guest additions
-sudo apt-get install -y virtualbox-guest-additions-iso
-sudo mount /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt
-sudo /mnt/VBoxLinuxAdditions.run
-
 # sound
 pulseaudio --start
 
@@ -69,6 +64,11 @@ pip3 install epy-reader
 # newsboat, rss reader
 mkdir -p ~/.newsboat
 cp newsboat/urls ~/.newsboat/
+
+# virtualbox guest additions
+sudo apt-get install -y virtualbox-guest-additions-iso
+sudo mount /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt
+sudo /mnt/VBoxLinuxAdditions.run
 
 # remove unwanted packages
 for i in $(cat apt/unwanted_packages.txt); do
