@@ -37,7 +37,7 @@ static const Block blocks[] = {
         0
     },
 	{
-        "⌚ ",
+        "",
         "date '+%Y-%m-%d %H:%M:%S'",
         1,
         0
