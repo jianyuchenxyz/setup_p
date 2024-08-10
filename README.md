@@ -1,8 +1,8 @@
-# Ubuntu Desktop Automated Setup
+# Ubuntu Server Automated Setup
 
-NOTE: These steps were tested on [Ubuntu 20.04 Desktop](https://ubuntu.com/download/desktop).
+NOTE: These steps were tested on [Ubuntu 20.04 Server](https://ubuntu.com/download/server).
 
-These steps are an _attempt_ to build the entire Ubuntu Desktop environment from a fresh install. The end state is an environment that uses _suckless software_ and its derivatives.
+These steps are an _attempt_ to build the entire Ubuntu Server environment from a fresh install. The end state is an environment that uses _suckless software_ and its derivatives.
 
 Base installation version:
 
@@ -12,10 +12,15 @@ Base installation version:
 
 ## Note
 
-* The Ubuntu Desktop environment was run on [Oracle VirtualBox](https://www.virtualbox.org), using Guest Additions 7.0.12.
-* The Ubuntu Desktop comes packaged with the [Gnome Display Manager (GDM3)](https://www.gnome.org) which starts the `X` session by reading `~/.xprofile`, instead of reading `~/.xinitrc` via `startx`. This setup also requires GDM3 as a login manager before switching to X/DWM. **If these steps are performed on other operating systems, expect the entry mechanism to change.**
+* The Ubuntu Server environment was run on [Oracle VirtualBox](https://www.virtualbox.org), using Guest Additions 7.0.12.
+* Mechanism of entry: login -> .profile (startx) -> .xinitrc (exec dwm)
 * There seems to be persistent sound-related issues on Firefox due to `pulseaudio`, `speech-dispatcher` or some combination of these. As a workaround, `speech-dispatcher` has been removed during the setup.
-* The Ubuntu Desktop VM seems to be more stable on 4 cores. VM struggles and occasionally freezes with 1-2 cores. Anything above 4 cores causes performance to degrade.
+* The Ubuntu Server VM seems to be stable on 4 cores. VM struggles and occasionally freezes with 1-2 cores. Anything above 4 cores causes performance to degrade.
+* Baseline resources granted to VM:
+  * 4096 RAM
+  * 4 CPUs
+  * 256 VRAM (on host, do 'VBoxManage.exe modifyvm "<VM_NAME>" --vram 256)
+* The VM hangs from time to time upon startup, without reaching the login screen. The only way onward is to do a VM reset. The root cause has not been found.
 
 ## Usage
 
@@ -23,7 +28,7 @@ Base installation version:
 
 This section covers the minimal manual work needed to run the script.
 
-If this is run on Ubuntu Server OS, it is highly recommended to add the option `nomodeset` to `/etc/default/grub`:
+It is highly recommended to add the option `nomodeset` to `/etc/default/grub`:
 
 ```bash
 sudo su  # use root
@@ -34,16 +39,16 @@ cp /etc/default/grub /etc/default/grub.bak
 
 ```bash
 # git clone this repo
-git clone --depth=1 https://github.com/jianyuchenxyz/setup
-# clones into dir 'setup'
-cd setup
+git clone --depth=1 https://github.com/jianyuchenxyz/setup_p
+# clones into dir 'setup_p'
+cd setup_p
 ```
 
-### Running `os/setup.sh`
+### Running `setup.sh`
 
 ```bash
-pwd   # in dir 'setup'
-bash os/setup.sh
+pwd   # in dir 'setup_p'
+./setup.sh
 ```
 
 Reboot the instance.
