@@ -6,9 +6,9 @@ These steps are an _attempt_ to build the entire Ubuntu Server environment from 
 
 Base installation version:
 
-* [dwm](https://dwm.suckless.org) - [dwm-6.5](https://dl.suckless.org/dwm/dwm-6.5.tar.gz). **DWM** is a tiling manager built on top of the [**X Window System**](https://en.wikipedia.org/wiki/X_Window_System).
-* [dmenu](https://tools.suckless.org/dmenu) - [dmenu-5.3](https://dl.suckless.org/tools/dmenu-5.3.tar.gz)
-* [st](https://st.suckless.org) - [st-0.9.2](https://dl.suckless.org/st/st-0.9.2.tar.gz)
+* [dwm](https://dwm.suckless.org) ([v6.5](https://dl.suckless.org/dwm/dwm-6.5.tar.gz)) - **DWM** is a tiling manager built on top of the [**X Window System**](https://en.wikipedia.org/wiki/X_Window_System).
+* [dmenu](https://tools.suckless.org/dmenu) ([v5.3](https://dl.suckless.org/tools/dmenu-5.3.tar.gz))
+* [st](https://st.suckless.org) ([v0.9.2](https://dl.suckless.org/st/st-0.9.2.tar.gz))
 
 ## Note
 
@@ -19,7 +19,7 @@ Base installation version:
 * Baseline resources granted to VM:
   * 4096 RAM
   * 4 CPUs
-  * 256 VRAM (on host, do 'VBoxManage.exe modifyvm "<VM_NAME>" --vram 256)
+  * 256 VRAM (on host, do `VBoxManage.exe modifyvm "<VM_NAME>" --vram 256`)
   * 3D Acceleration OFF
 * The VM hangs from time to time upon startup, without reaching the login screen. The only way onward is to do a VM reset. The root cause has not been found.
 
