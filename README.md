@@ -20,6 +20,7 @@ Base installation version:
   * 4096 RAM
   * 4 CPUs
   * 256 VRAM (on host, do 'VBoxManage.exe modifyvm "<VM_NAME>" --vram 256)
+  * 3D Acceleration OFF
 * The VM hangs from time to time upon startup, without reaching the login screen. The only way onward is to do a VM reset. The root cause has not been found.
 
 ## Usage
