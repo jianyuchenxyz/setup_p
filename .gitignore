@@ -1,0 +1,11 @@
+*.swp
+*.a
+*.o
+*.obj
+
+os/utils/get_uptime
+os/utils/get_storage
+os/dwm/dwm
+os/dmenu/dmenu
+os/st/st
+os/dwmblocks/dwmblocks
