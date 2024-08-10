@@ -41,15 +41,10 @@ cp /etc/default/grub /etc/default/grub.bak
 ```bash
 # git clone this repo
 git clone --depth=1 https://github.com/jianyuchenxyz/setup_p
+
 # clones into dir 'setup_p'
 cd setup_p
-```
-
-### Running `setup.sh`
-
-```bash
-pwd   # in dir 'setup_p'
-./setup.sh
+./setup.sh >> ~/setup.log
 ```
 
 Reboot the instance.
