@@ -6,7 +6,7 @@ sudo add-apt-repository -y ppa:neovim-ppa/stable # for neovim v0.7+
 
 # package updates
 sudo apt update
-for i in $(cat apt/necessary_packages.txt); do
+for i in $(cat apt/install.txt); do
     sudo apt-get install -y $i;
 done
 
@@ -71,7 +71,7 @@ sudo mount /usr/share/virtualbox/VBoxGuestAdditions.iso /mnt
 sudo /mnt/VBoxLinuxAdditions.run
 
 # remove unwanted packages
-for i in $(cat apt/unwanted_packages.txt); do
+for i in $(cat apt/remove.txt); do
     sudo apt remove -y $i;
 done
 
@@ -102,3 +102,8 @@ fi
 if [ ! "$(ls -A ~/Videos)" ]; then
     rm -rf ~/Videos
 fi
+
+# disable startup services
+for i in $(cat services/disable.txt); do
+    sudo systemctl disable $i;
+done
