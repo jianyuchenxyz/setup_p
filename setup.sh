@@ -18,7 +18,7 @@ cat dotfiles/.bashrc >> ~/.bashrc
 source ~/.bashrc
 
 # ~/.profile, startup xserver after login
-echo "startx" >> ~/.profile
+cat dotfiles/.profile >> ~/.profile
 
 # neovim
 mkdir -p ~/.local/share/nvim/site/autoload
