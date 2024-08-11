@@ -13,7 +13,7 @@ Base installation version:
 ## Note
 
 * The Ubuntu Server environment was run on [Oracle VirtualBox](https://www.virtualbox.org), using Guest Additions 7.0.12.
-* Mechanism of entry: login -> .profile (runs `startx`) -> .xinitrc (runs `exec dwm`)
+* Mechanism of entry: login -> `~/.profile` (runs `startx`) -> `~/.xinitrc` (runs `exec dwm`)
 * There seems to be persistent sound-related issues on Firefox due to `pulseaudio`, `speech-dispatcher` or some combination of these. As a workaround, `speech-dispatcher` has been removed during the setup.
 * The Ubuntu Server VM seems to be stable on 4 cores. VM struggles and occasionally freezes with 1-2 cores. Anything above 4 cores causes performance to degrade.
 * Baseline resources granted to VM:
