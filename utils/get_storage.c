@@ -7,13 +7,25 @@
 #include <strings.h>
 #include <sys/statvfs.h>
 
+// format_size returns a pointer to a string showing shortened
+// human readable storage readings. Due to the INT64_MAX of 2^63-1,
+// the maximum size that can be returned is "8.0EB".
+// IMPORTANT: Caller needs to 'free()' the pointer after usage.
 char* format_size(int64_t size) {
-    const int BUF_LEN = 20;
-    char* buf = malloc(sizeof(char) * BUF_LEN);
+    /*
+     * MAX_BUF_LEN is 9:
+     *   - max of 4 integer char, 0 - 1024
+     *   - max of 1 decimal point char
+     *   - max of 1 fractional char
+     *   - max of 2 unit char, 'xB'
+     *   - NUL terminator
+     */
+    const int MAX_BUF_LEN = 9;
+    char* buf = malloc(sizeof(char) * MAX_BUF_LEN);
 
     if (size <= 1024) {
         // no decimal places needed, return integer
-        snprintf(buf, BUF_LEN, "%jdB", size);
+        snprintf(buf, MAX_BUF_LEN, "%jdB", size);
         return buf;
     }
 
@@ -34,26 +46,27 @@ char* format_size(int64_t size) {
         i++;
     }
 
-    snprintf(buf, BUF_LEN, "%.1f%s", p, UNITS[i]);
+    snprintf(buf, MAX_BUF_LEN, "%.1f%s", p, UNITS[i]);
     return buf;
 }
 
 int main(int argc, char* argv[]) {
 
-   /* from: "man statvfs"
-   struct statvfs {
-       unsigned long  f_bsize;    // Filesystem block size
-       unsigned long  f_frsize;   // Fragment size
-       fsblkcnt_t     f_blocks;   // Size of fs in f_frsize units
-       fsblkcnt_t     f_bfree;    // Number of free blocks
-       fsblkcnt_t     f_bavail;   // Number of free blocks for unprivileged users
-       fsfilcnt_t     f_files;    // Number of inodes
-       fsfilcnt_t     f_ffree;    // Number of free inodes
-       fsfilcnt_t     f_favail;   // Number of free inodes for unprivileged users
-       unsigned long  f_fsid;     // Filesystem ID
-       unsigned long  f_flag;     // Mount flags
-       unsigned long  f_namemax;  // Maximum filename length
-    }
+   /*
+    * from "man statvfs":
+    * struct statvfs {
+    *     unsigned long  f_bsize;    // Filesystem block size
+    *     unsigned long  f_frsize;   // Fragment size
+    *     fsblkcnt_t     f_blocks;   // Size of fs in f_frsize units
+    *     fsblkcnt_t     f_bfree;    // Number of free blocks
+    *     fsblkcnt_t     f_bavail;   // Number of free blocks for unprivileged users
+    *     fsfilcnt_t     f_files;    // Number of inodes
+    *     fsfilcnt_t     f_ffree;    // Number of free inodes
+    *     fsfilcnt_t     f_favail;   // Number of free inodes for unprivileged users
+    *     unsigned long  f_fsid;     // Filesystem ID
+    *     unsigned long  f_flag;     // Mount flags
+    *     unsigned long  f_namemax;  // Maximum filename length
+    * }
     */
 
     const char* dir = "/";
