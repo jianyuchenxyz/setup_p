@@ -29,7 +29,7 @@ Base installation version:
 
 This section covers the minimal manual work needed to run the script.
 
-It is highly recommended to add the option `nomodeset` to `/etc/default/grub`:
+It is highly recommended to add the option `nomodeset` to `/etc/default/grub`, but it does not seem to completely resolve the problem:
 
 ```bash
 sudo su  # use root
@@ -53,7 +53,10 @@ Reboot the instance.
 sudo reboot now
 ```
 
-After choosing the user, click the cog on the lower right corner and select `DWM`.
+### Launching the Environment
+
+1. Login on the root console.
+2. DWM automatically starts!
 
 ### Post-script manual setups
 
