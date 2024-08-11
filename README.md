@@ -63,6 +63,12 @@ Use `ALSA` to ensure audio volume is set correctly (it seems to be set lower tha
 alsamixer
 ```
 
+Neovim's MarkdownPreview plugin might require additional steps to work. Enter Neovim and input the following command:
+
+```
+:call mkdp#util#install()
+```
+
 ### Suckless Patches
 
 #### dwm
