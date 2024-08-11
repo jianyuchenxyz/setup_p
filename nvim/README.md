@@ -16,7 +16,7 @@ mkdir -p ~/.config/nvim/
 
 4. Clone this repository and copy `init.vim` into `~/.config/nvim/`.
 ```
-git clone https://github.com/jianyuchenxyz/setup
+git clone https://github.com/jianyuchenxyz/setup_p
 cp setup/nvim/init.vim ~/.config/nvim/
 ```
 
