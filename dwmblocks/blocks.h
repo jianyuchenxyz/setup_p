@@ -9,34 +9,31 @@ static const Block blocks[] = {
     }
     */
 	{ " ", "", 3600, 0 }, // empty boundary block
-	{
-        //"CPU: ",
+	{ // CPU
         "[C] ",
         "top -bn1 | awk '/Cpu/ {print $2 \"%\"}'",
         2,
         0
     },
-	{
-        //"Mem: ",
+	{ // Mem
         "[M] ",
         "free -h | awk '/^Mem/ { print $3\" ⧸ \"$2 }' | sed s/i//g",
         2,
         0
     },
-	{
-        //"Drive: ",
+	{ // Drive space
         "[D] ",
         "~/.setup/utils/get_storage",
         5,
         0
     },
-	{
+	{ // Uptime
         "⬆ ",
         "~/.setup/utils/get_uptime",
         5,
         0
     },
-	{
+	{ // Datetime
         "",
         "date '+%Y-%m-%d %H:%M:%S'",
         1,
