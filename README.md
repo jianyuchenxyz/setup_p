@@ -38,6 +38,13 @@ cp /etc/default/grub /etc/default/grub.bak
 # append nomodeset to the line `GRUB_CMDLINE_LINUX_DEFAULT`.
 ```
 
+Setup and sync system clocks to NTP and the correct timezone.
+
+```bash
+sudo timedatectl set-ntp true
+sudo timedatectl set-timezone '<IANA Timezone>'
+```
+
 ```bash
 # git clone this repo
 git clone --depth=1 https://github.com/jianyuchenxyz/setup_p
