@@ -27,9 +27,6 @@ opt.belloff = 'all'
 
 -- opt.colorcolumn = '80'        -- set color boundary at column position
 -- opt.termguicolors = true      -- enable 24-bit RGB colors
---
--- To fix colors when installing LazyVim
--- vim.o.termguicolors = false
 
 -- Autocomplete options
 opt.completeopt = 'menuone,noinsert,noselect'
