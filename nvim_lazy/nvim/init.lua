@@ -7,9 +7,6 @@ local opt = vim.opt -- set options (global/buffer/window)
 
 opt.fileencoding = 'utf-8'
 opt.encoding = 'utf-8'
--- opt.mouse = 'a'               -- enable mouse support
--- opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
--- opt.background = 'dark'       -- set background color. TODO: not needed?
 opt.guicursor = ''            -- block cursor
 opt.laststatus = 3            -- global status line
 opt.swapfile = false          -- don't use swapfile
@@ -25,8 +22,8 @@ opt.history = 100             -- keep N lines of history
 opt.lazyredraw = true         -- faster scrolling
 opt.belloff = 'all'
 
--- opt.colorcolumn = '80'        -- set color boundary at column position
--- opt.termguicolors = true      -- enable 24-bit RGB colors
+-- opt.mouse = 'a'               -- enable mouse support
+-- opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 
 -- Autocomplete options
 opt.completeopt = 'menuone,noinsert,noselect'

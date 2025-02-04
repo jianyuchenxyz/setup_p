@@ -2,12 +2,12 @@ return {
     {
         enabled = false,
 
-        "ellisonleao/gruvbox.nvim",
-        name = "gruvbox",
+        "dracula/vim",
+        name = "dracula",
         priority = 1000,
 
         config = function()
-            vim.cmd.colorscheme "gruvbox"
+            vim.cmd.colorscheme "dracula"
         end
     }
 }
