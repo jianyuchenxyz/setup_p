@@ -12,13 +12,6 @@ CYAN="\001\e[96m\002"
 WHITE="\001\e[97m\002"
 #-----------------------
 
-trailing_two_directories() {
-    OLD_IFS=${IFS}
-    IFS=""
-    printf " | "${CYAN}"📂 $(pwd | awk -F '/' '{print $(NF-1), $(NF)}' | sed 's/ /\//')"${RESET}""
-    IFS=${OLD_IFS}
-}
-
 last_command_status() {
     printf " | "${YELLOW}"\$?: ${?}"${RESET}""
 }
@@ -33,4 +26,4 @@ parse_git_branch() {
     fi
 }
 
-export PS1="\n[ "${RED}"\t"${RESET}"\$(trailing_two_directories)\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
+export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
