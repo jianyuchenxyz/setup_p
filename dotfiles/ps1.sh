@@ -1,5 +1,5 @@
 
-# Terminal Prompt - should be fully POSIX-compliant.
+# Terminal Prompt - should be POSIX-compliant
 
 #----- ANSI Colors -----
 RESET="\001\e[0m\002"
@@ -18,9 +18,9 @@ parse_git_branch() {
     if [ ${?} -eq 0 ]; then
         OLD_IFS=${IFS}
         IFS=""
-        printf " | "${GREEN}"$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')"${RESET}""
+        printf " | "${GREEN}"⎇ $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/')"${RESET}""
         IFS=${OLD_IFS}
     fi
 }
 
-export PS1="[ "${RED}"\t"${RESET}" | "${CYAN}"\W"${RESET}"\$(parse_git_branch) ]\$ "
+export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(parse_git_branch) ]\n❱❱ "
