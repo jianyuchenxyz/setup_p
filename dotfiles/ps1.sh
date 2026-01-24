@@ -2,6 +2,7 @@
 
 #----- ANSI Colors -----
 RESET="\001\e[0m\002"
+BOLD="\001\e[1m\002"
 
 RED="\001\e[91m\002"
 GREEN="\001\e[92m\002"
@@ -13,14 +14,13 @@ WHITE="\001\e[97m\002"
 #-----------------------
 
 last_command_status() {
-    EXIT=${?}
-    if [ ${EXIT} -eq 0 ]; then
-        EXIT_ICON="✔"
-    else
-        EXIT_ICON="✘"
+    EXIT_CODE=${?}
+    if [ ${EXIT_CODE} -eq 0 ]; then
+        printf " | "${GREEN}"✔ "${EXIT_CODE}""${RESET}""
+        return
     fi
 
-    printf " | "${YELLOW}""${EXIT_ICON}" ${EXIT}"${RESET}""
+    printf " | "${RED}"✘ "${EXIT_CODE}""${RESET}""
 }
 
 parse_git_branch() {
@@ -28,9 +28,9 @@ parse_git_branch() {
     if [ ${?} -eq 0 ]; then
         OLD_IFS=${IFS}
         IFS=""
-        printf " | "${GREEN}"⎇ $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/')"${RESET}""
+        printf " | "${MAGENTA}"⎇ $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/')"${RESET}""
         IFS=${OLD_IFS}
     fi
 }
 
-export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
+export PS1="\n[ "${BLUE}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
