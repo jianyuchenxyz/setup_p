@@ -1,5 +1,5 @@
 
-# Terminal Prompt - should be POSIX-compliant
+# Terminal Prompt - should be POSIX-compliant.
 
 #----- ANSI Colors -----
 RESET="\001\e[0m\002"
@@ -13,6 +13,10 @@ CYAN="\001\e[96m\002"
 WHITE="\001\e[97m\002"
 #-----------------------
 
+last_command_status() {
+    printf " | "${YELLOW}"\$?: ${?}"${RESET}""
+}
+
 parse_git_branch() {
     git rev-parse 2> /dev/null
     if [ ${?} -eq 0 ]; then
@@ -23,4 +27,4 @@ parse_git_branch() {
     fi
 }
 
-export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(parse_git_branch) ]\n❱❱ "
+export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n❱❱ "
