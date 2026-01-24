@@ -13,7 +13,14 @@ WHITE="\001\e[97m\002"
 #-----------------------
 
 last_command_status() {
-    printf " | "${YELLOW}"\$?: ${?}"${RESET}""
+    EXIT=${?}
+    if [ ${EXIT} -eq 0 ]; then
+        EXIT_ICON="✔"
+    else
+        EXIT_ICON="✘"
+    fi
+
+    printf " | "${YELLOW}""${EXIT_ICON}" ${EXIT}"${RESET}""
 }
 
 parse_git_branch() {
