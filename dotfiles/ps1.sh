@@ -27,4 +27,4 @@ parse_git_branch() {
     fi
 }
 
-export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n❱❱ "
+export PS1="\n[ "${RED}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
