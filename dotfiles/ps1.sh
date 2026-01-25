@@ -50,4 +50,4 @@ parse_git_branch() {
     fi
 }
 
-export PS1="\n[ \$(current_time)\$(last_command_status)\$(trailing_two_dirs)\$(parse_git_branch) ]\n ∟❱❱ "
+export PS1="\n[ "${BLUE}"\t"${RESET}"\$(last_command_status)\$(trailing_two_dirs)\$(parse_git_branch) ]\n ∟❱❱ "
