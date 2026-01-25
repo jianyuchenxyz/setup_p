@@ -13,6 +13,19 @@ MAGENTA=$(tput setaf 5)
   WHITE=$(tput setaf 7)
 #-----------------------
 
+trailing_two_dirs() {
+    if [ $(pwd) = "${HOME}" ]; then
+        DIR_STR='~'
+    else
+        DIR_STR="$(pwd | awk -F '/' '{print $(NF-1), $(NF)}' | sed 's/ /\//')"
+    fi
+
+    OLD_IFS=${IFS}
+    IFS=""
+    printf ' | %s📂 %s%s' "${CYAN}" "${DIR_STR}" "${RESET}"
+    IFS=${OLD_IFS}
+}
+
 last_command_status() {
     EXIT_CODE=${?}
     if [ ${EXIT_CODE} -eq 0 ]; then
@@ -33,4 +46,4 @@ parse_git_branch() {
     fi
 }
 
-export PS1="\n[ "${BLUE}"\t"${RESET}" | "${CYAN}"📂 \W"${RESET}"\$(last_command_status)\$(parse_git_branch) ]\n ∟❱❱ "
+export PS1="\n[ "${BLUE}"\t"${RESET}"\$(last_command_status)\$(trailing_two_dirs)\$(parse_git_branch) ]\n ∟❱❱ "
