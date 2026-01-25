@@ -1,26 +1,26 @@
 # Terminal Prompt - should be POSIX-compliant.
 
 #----- ANSI Colors -----
-RESET="\001\e[0m\002"
-BOLD="\001\e[1m\002"
+  RESET=$(tput sgr0)
+   BOLD=$(tput bold)
 
-RED="\001\e[91m\002"
-GREEN="\001\e[92m\002"
-YELLOW="\001\e[93m\002"
-BLUE="\001\e[94m\002"
-MAGENTA="\001\e[95m\002"
-CYAN="\001\e[96m\002"
-WHITE="\001\e[97m\002"
+    RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+ YELLOW=$(tput setaf 3)
+   BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+   CYAN=$(tput setaf 6)
+  WHITE=$(tput setaf 7)
 #-----------------------
 
 last_command_status() {
     EXIT_CODE=${?}
     if [ ${EXIT_CODE} -eq 0 ]; then
-        printf " | "${GREEN}"✔ "${EXIT_CODE}""${RESET}""
+        printf ' | %s✔ %d%s' "${GREEN}" "${EXIT_CODE}" "${RESET}"
         return
     fi
 
-    printf " | "${RED}"✘ "${EXIT_CODE}""${RESET}""
+    printf ' | %s✘ %d%s' "${RED}" "${EXIT_CODE}" "${RESET}"
 }
 
 parse_git_branch() {
@@ -28,7 +28,7 @@ parse_git_branch() {
     if [ ${?} -eq 0 ]; then
         OLD_IFS=${IFS}
         IFS=""
-        printf " | "${MAGENTA}"⎇ $(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/')"${RESET}""
+        printf ' | %s⎇ %s%s' "${MAGENTA}" "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/')" "${RESET}"
         IFS=${OLD_IFS}
     fi
 }
