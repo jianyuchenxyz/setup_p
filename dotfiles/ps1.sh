@@ -43,7 +43,7 @@ _prompt() {
 
     _parse_branch=$(git symbolic-ref -q --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
     if [ ! -z "${_parse_branch}" ]; then
-        _git_branch=$(printf ' | %s⎇ %s%s' "${_c_magenta}" "${_parse_branch}" "${_c_reset}")
+        _git_branch=$(printf ' | %s⎇  %s%s' "${_c_magenta}" "${_parse_branch}" "${_c_reset}")
     fi
 
     _prompt_trail='∟❱❱'
