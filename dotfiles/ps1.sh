@@ -1,16 +1,16 @@
 # Terminal Prompt - should be POSIX-compliant.
 
 #------- ANSI Colors -------
-  _c_reset=$(tput sgr0)
-   _c_bold=$(tput bold)
+   _c_reset=$(tput sgr0)
+    _c_bold=$(tput bold)
 
-    _c_red=$(tput setaf 1)
-  _c_green=$(tput setaf 2)
- _c_yellow=$(tput setaf 3)
-   _c_blue=$(tput setaf 4)
-_c_magenta=$(tput setaf 5)
-   _c_cyan=$(tput setaf 6)
-  _c_white=$(tput setaf 7)
+     _c_red=$(tput setaf 1)
+   _c_green=$(tput setaf 2)
+  _c_yellow=$(tput setaf 3)
+    _c_blue=$(tput setaf 4)
+ _c_magenta=$(tput setaf 5)
+    _c_cyan=$(tput setaf 6)
+   _c_white=$(tput setaf 7)
 #---------------------------
 
 _prompt() {
