@@ -46,9 +46,9 @@ _prompt() {
         _git_branch=$(printf ' | %sㇳ%s%s' "${_c_magenta}" "${_parse_branch}" "${_c_reset}")
     fi
 
-    _prompt_trail='└─❱❱'
+    _prompt_trail='╰─❱❱'
 
-    printf '\n【%s%s%s%s 】\n %s ' "${_time}" "${_last_command_status}" "${_dir}" "${_git_branch}" "${_prompt_trail}"
+    printf '\n ╭─【%s%s%s%s 】\n %s ' "${_time}" "${_last_command_status}" "${_dir}" "${_git_branch}" "${_prompt_trail}"
 }
 
 export PS1="\$(_prompt)"
