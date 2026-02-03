@@ -48,7 +48,7 @@ _prompt() {
 
     _prompt_trail='╰──❱❱'
 
-    printf '\n╭─【%s%s%s%s 】\n%s ' "${_time}" "${_last_command_status}" "${_dir}" "${_git_branch}" "${_prompt_trail}"
+    printf '\n╭─[ %s%s%s%s ]\n%s ' "${_time}" "${_last_command_status}" "${_dir}" "${_git_branch}" "${_prompt_trail}"
 }
 
 export PS1="\$(_prompt)"
