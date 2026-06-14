@@ -6,6 +6,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export LESSHISTFILE=-  # Do not create .lesshst while invoking less.
+
 # PATH
 export PATH=$PATH:~/.local/bin  # epy
 
