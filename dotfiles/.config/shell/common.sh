@@ -49,8 +49,6 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gl="git log --all --decorate --oneline --graph"
 alias gs="git status"
-alias ls="ls --color=auto"
-alias sc="staticcheck"
 alias vi="${XDG_BIN_HOME}/nvim-0_11_4.appimage"  # v0.11.4
 
 #-----------------------------------------------------------
